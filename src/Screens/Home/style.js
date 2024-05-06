@@ -1,45 +1,77 @@
 import { StyleSheet } from "react-native";
 
 const style = StyleSheet.create({
-    container :{ 
-        flex:1,
+    container: {
+        flex: 1,
         backgroundColor: '#FFFDF4F5'
 
     },
-    subContainer:{ 
-        marginTop:160,
-        left:23,
+    subContainer: {
+        marginTop: 160,
+        left: 23,
         // gap:30
     },
-    todayTasks:{ 
-        fontSize:20,
+    todayTasks: {
+        fontSize: 20,
         color: '#444444',
-        lineHeight:23.7,
-        fontWeight:"600"
+        lineHeight: 23.7,
+        fontWeight: "600"
 
     },
 
-    taskConatiner :{ 
-        padding:10,
-        borderWidth:2,
+    taskConatiner: {
+        flexDirection: 'column',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+        width: 370,
+        height: 72,
+        gap: 10,
+        // padding: 10,
+        paddingVertical:10,
+        paddingHorizontal:10,
+        borderWidth: 2,
         borderColor: '#D6D6D6',
         // borderColor: borderColor,
-        borderStyle:'solid',
+        borderStyle: 'solid',
         // marginVertical:10,
-        borderRadius:20,
-        width:370,
-        height:72,
-        flexDirection:'row'
-        
+        borderRadius: 20,
+        position:"relative",
+        // backgroundColor:'blue'
+
+
 
     },
-    taskTitle :{ 
-        fontSize:16,
-        fontWeight:"400",
-        fontFamily:'Roboto-Medium',
+    taskTitle: {
+        fontSize: 16,
+        fontWeight: "400",
+        fontFamily: 'Roboto-Medium',
         color: '#00000080',
-        lineHeight:18.96
+        lineHeight: 18.96,
+        // marginLeft:80,
+        // textDecorationLine:'line-through',
 
+
+    },
+
+    chekboxIcon: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginRight: 10,
+        marginTop:5,
+        // backgroundColor:'yellow'
+    },
+    deleteIcon:{
+        position:"absolute",
+        right:10,
+        bottom:5,
+    },
+    editIcon: { 
+        position:"absolute",
+        right:5,
+        top:5,
+    },
+
+    addTaskInput: { 
         
     }
 })

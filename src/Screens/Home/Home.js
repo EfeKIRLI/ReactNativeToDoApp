@@ -1,8 +1,16 @@
-import React, { useState } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { StyleSheet, Text, View, Pressable, TextInput, ScrollView, KeyboardAvoidingView,Platform, Keyboard } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 import style from './style'
 import { FlatList } from 'react-native'
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+// import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import NewTaskInput from '../../components/NewTaskInput/NewTaskInput';
+
+
 
 const initialTasks = [
     {
@@ -31,43 +39,91 @@ const initialTasks = [
 
 
 
-
 const Home = () => {
     const [tasks, setTasks] = useState(initialTasks)
 
+
+    // const [keyboardShown, setKeyboardShown] = useState(false);
+
+    // useEffect(() => {
+    //     const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', () => {
+    //         setKeyboardShown(true);
+    //     });
+    //     const keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', () => {
+    //         setKeyboardShown(false);
+    //     });
+
+    //     return () => {
+    //         keyboardDidShowListener.remove();
+    //         keyboardDidHideListener.remove();
+    //     };
+    // }, []);
+
+
+    const onTaskPressed = (index) => {
+        setTasks((currentTasks) => {
+            const updatedTasks = [...currentTasks];
+            currentTasks[index].isCompleted = !currentTasks[index].isCompleted;
+            console.log(currentTasks, updatedTasks)
+            return updatedTasks
+        }) // update the tasks state
+        console.warn('You finished')
+
+    }
+
     return (
-
         <View style={style.container}>
+            <SafeAreaView>
+                <View style={style.subContainer}>
+                    <Text style={style.todayTasks} >Today's tasks </Text>
 
-            <View style={style.subContainer}>
-                <Text style={style.todayTasks} >Today's tasks </Text>
+                    <FlatList data={tasks}
+                        contentContainerStyle={{ gap: 10, }}
+                        renderItem={({ item, index }) => (
 
-                <FlatList data={tasks}
-                    contentContainerStyle={{ gap: 10 }}
-                    renderItem={({ item }) => (
- 
-                        <View style={style.taskConatiner} >
-                            <MaterialCommunityIcons
-                                name={item.isCompleted
-                                    ? "checkbox-marked"
-                                    : "checkbox-blank"
-                                }
-                                size={26}
-                                color={item.isCompleted
-                                    ? '#DFBD43'
-                                    : '#FFE0B5'
-                                    
-                                }
+                            <Pressable onPress={() => onTaskPressed(index)} style={style.taskConatiner} >
+                                <View style={style.chekboxIcon}>
+                                    <MaterialCommunityIcons
+                                        name={item.isCompleted
+                                            ? "checkbox-marked"
+                                            : "checkbox-blank"
+                                        }
+                                        size={26}
+                                        color={item.isCompleted
+                                            ? '#DFBD43'
+                                            : '#FFE0B5'
 
-                            />
-                            <Text style={style.taskTitle} >{item.title} </Text>
-                        </View>
-                    )}
+                                        }
 
-                />
+                                    />
+                                </View>
 
-            </View>
+                                <Text> 08:00 AM  </Text>
+                                <Text style={[style.taskTitle, { textDecorationLine: item.isCompleted ? 'line-through' : 'none' }]} >{item.title} </Text>
+
+                                <View style={style.editIcon}>
+                                    <MaterialIcons name="edit-note" size={26} color="#DFBD43" />
+                                </View>
+                                <View style={style.deleteIcon}>
+                                    <MaterialIcons name="delete" size={22} color="#DFBD43" />
+                                </View>
+                            </Pressable >
+                        )}
+
+                    />
+                    <NewTaskInput onAdd={(newTodo) =>
+                        setTasks((currentTasks) => [...currentTasks, newTodo])
+                    }
+                    />
+
+
+
+                </View>
+              
+            </SafeAreaView>
         </View>
+      
+
 
 
     )
