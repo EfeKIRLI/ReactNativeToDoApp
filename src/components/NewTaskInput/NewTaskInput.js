@@ -22,6 +22,10 @@ const NewTaskInput = ({onAdd}) => {
                 style={style.addTaskInput}
                 placeholder='Todo...'
                 onEndEditing={() => {
+
+                    if(!newTask) { 
+                        return;
+                    }
                     onAdd({ title: newTask, isCompleted: false })
                     setNewTask('');
                     console.warn('Add Task:', newTask)

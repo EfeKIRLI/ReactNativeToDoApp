@@ -7,7 +7,7 @@ const style = StyleSheet.create({
 
     },
     subContainer: {
-        marginTop: 160,
+        marginTop: 100,
         left: 23,
         // gap:30
     },
@@ -73,6 +73,13 @@ const style = StyleSheet.create({
 
     addTaskInput: { 
         
+    },
+
+    searchBox:{ 
+        // marginHorizontal:25,
+        marginTop:20,
+        // left:2,
+        width:370
     }
 })
 export default style;

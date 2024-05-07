@@ -7,6 +7,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Routes from './src/Navigation/Routes';
 import Home from './src/Screens/Home/Home';
 import { useFonts } from 'expo-font';
+import navigationString from './constants/navigationString';
 
 
 
@@ -44,12 +45,16 @@ export default function App() {
 
     // </SafeAreaProvider>
 
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName={Routes.HOME} screenOptions={{ headerShown: true }}>
-        <Stack.Screen name={Routes.HOME} component={Home} />
+    // <NavigationContainer>
+    //   <Stack.Navigator initialRouteName={navigationString.HOME} screenOptions={{ headerShown: true }}>
+    //     <Stack.Screen name={navigationString.HOME} component={Home} />
 
-      </Stack.Navigator>
-    </NavigationContainer>
+    //   </Stack.Navigator>
+    // </NavigationContainer>
+
+    <View style={{flex:1}} >  
+      <Routes />
+    </View>
 
   );
 }
