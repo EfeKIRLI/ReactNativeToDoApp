@@ -8,6 +8,7 @@ import Routes from './src/Navigation/Routes';
 import Home from './src/Screens/Home/Home';
 import { useFonts } from 'expo-font';
 import navigationString from './constants/navigationString';
+import { ActionSheetProvider } from '@expo/react-native-action-sheet';
 
 
 
@@ -52,9 +53,12 @@ export default function App() {
     //   </Stack.Navigator>
     // </NavigationContainer>
 
-    <View style={{flex:1}} >  
-      <Routes />
-    </View>
+
+    <ActionSheetProvider>
+      <View style={{ flex: 1 }} >
+        <Routes />
+      </View>
+    </ActionSheetProvider>
 
   );
 }
