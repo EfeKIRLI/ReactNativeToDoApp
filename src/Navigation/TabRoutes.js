@@ -25,6 +25,8 @@ const TabRoutes = () => {
       tabBarShowLabel:true,
       tabBarStyle:{ 
       backgroundColor:'#EDEAEA',
+    
+      
       // borderRadius:30,
       // marginHorizontal:2
       }
@@ -36,12 +38,14 @@ const TabRoutes = () => {
         // title:'List',
         tabBarStyle:{ 
           backgroundColor:'#EDEAEA',
-          borderRadius:40,
-          marginHorizontal:3
+          borderRadius:30,
+          marginHorizontal:3,
+          height:60,
+          
         },
         tabBarIcon: ({focused}) => { 
           return ( 
-            <MaterialIcons name="home" size={24} color={focused ? "#444444" : "gray"} borderRadius={50} />
+            <MaterialIcons name="home" size={36} color={focused ? "#444444" : "gray"} borderRadius={50} />
           )
         }
       }}
@@ -50,12 +54,14 @@ const TabRoutes = () => {
       options={{ 
         tabBarStyle:{ 
           backgroundColor:'#EDEAEA',
-          borderRadius:40,
-          marginHorizontal:3
+          borderRadius:30,
+          marginHorizontal:3,
+          height:60,
+
         },
         tabBarIcon: ({focused}) => { 
           return ( 
-            <Ionicons name="settings-outline" size={24} color={focused ? "#444444" : "gray"}  />
+            <Ionicons name="settings-outline" size={36} color={focused ? "#444444" : "gray"}  />
           )
         }
       }}

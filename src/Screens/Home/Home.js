@@ -98,8 +98,7 @@ const Home = () => {
                                             size={26}
                                             color={item.isCompleted
                                                 ? '#DFBD43'
-                                                : '#FFE0B5'
-
+                                                : '#FFE0B5' 
                                             }
 
                                         />
