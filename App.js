@@ -10,7 +10,7 @@ import Home from './src/Screens/Home/Home';
 import { useFonts } from 'expo-font';
 import navigationString from './constants/navigationString';
 // import { ActionSheetProvider } from '@expo/react-native-action-sheet';
-// import ActionSheetRef from 'react-native-actions-sheet';
+import ActionSheetRef from 'react-native-actions-sheet';
 import ActionSheet from 'react-native-actions-sheet';
 
 
