@@ -4,15 +4,17 @@ import { View, Text, TextInput, Button, Pressable, Modal } from 'react-native'
 // import style from '../../Screens/Home/style'
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-// import { useActionSheet } from '@expo/react-native-action-sheet';
 import style from './style';
+import ActionSheet from 'react-native-actions-sheet';
+
+
 
 
 
 
 const NewTaskInput = ({ onAdd }) => {
   const [newTask, setNewTask] = useState('')
-  // const { showActionSheetWithOptions } = useActionSheet();
+  const actionSheetRef = useRef(null);
 
   const [isModalVisible, setIsModalVisible] = useState(false); // State for Todo modal visibility
 
@@ -24,11 +26,11 @@ const NewTaskInput = ({ onAdd }) => {
     console.warn('Add Task:', newTask);
   };
 
-  // // Define ActionSheet options
-  // const options = ['Add Todo', 'Cancel', 'title'];
-  // const destructiveButtonIndex = options.length - 1; // Index of Cancel button
-  // const cancelButtonIndex = options.length[1]; // Index of Cancel button
-  // const title = options.length[2]; // Index of Cancel button
+  // Define ActionSheet options
+  const options = ['Add Todo', 'Cancel', 'title'];
+  const destructiveButtonIndex = options.length - 1; // Index of Cancel button
+  const cancelButtonIndex = options.length[1]; // Index of Cancel button
+  const title = options.length[2]; // Index of Cancel button
 
 
   const onPress = () => {

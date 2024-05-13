@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect,useRef } from 'react'
 import { StyleSheet, Text, View, Pressable, TextInput, ScrollView, KeyboardAvoidingView, Platform, Keyboard } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -9,6 +9,7 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 // import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import NewTaskInput from '../../components/NewTaskInput/NewTaskInput';
+import ActionSheet from 'react-native-actions-sheet';
 
 
 
@@ -41,6 +42,9 @@ const initialTasks = [
 
 const Home = () => {
     const [tasks, setTasks] = useState(initialTasks)
+
+    const actionSheetRef = useRef(null);
+
 
 
     // const [keyboardShown, setKeyboardShown] = useState(false);
@@ -117,6 +121,7 @@ const Home = () => {
                             )}
 
                         />
+                        
 
                         <NewTaskInput onAdd={(newTodo) =>
                             setTasks((currentTasks) => [...currentTasks, newTodo])

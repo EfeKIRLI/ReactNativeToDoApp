@@ -10,7 +10,7 @@ import Home from './src/Screens/Home/Home';
 import { useFonts } from 'expo-font';
 import navigationString from './constants/navigationString';
 // import { ActionSheetProvider } from '@expo/react-native-action-sheet';
-import ActionSheetRef from 'react-native-actions-sheet';
+// import ActionSheetRef from 'react-native-actions-sheet';
 import ActionSheet from 'react-native-actions-sheet';
 
 
@@ -18,7 +18,6 @@ import ActionSheet from 'react-native-actions-sheet';
 
 const Stack = createNativeStackNavigator()
 
-const actionSheetRef = useRef<ActionSheetRef>(null);
 
 
 
@@ -60,11 +59,9 @@ export default function App() {
     //   </Stack.Navigator>
     // </NavigationContainer>
 
-    <ActionSheet ref={actionSheetRef}> 
       <View style={{ flex: 1 }} >
         <Routes />
       </View>
-      </ActionSheet>
   );
 }
 
