@@ -3,12 +3,14 @@ import { StyleSheet } from "react-native";
 const style = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FFFDF4F5'
+        backgroundColor: '#FFFDF4F5',
+        justifyContent:'center',
+        alignItems:'center'
 
     },
     subContainer: {
         marginTop: 100,
-        left: 23,
+        // left: 0,
         // gap:30
     },
     todayTasks: {

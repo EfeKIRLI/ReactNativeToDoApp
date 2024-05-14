@@ -10,6 +10,7 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import NewTaskInput from '../../components/NewTaskInput/NewTaskInput';
 import ActionSheet from 'react-native-actions-sheet';
+import Add from '../Add/Add';
 
 
 
@@ -121,16 +122,22 @@ const Home = () => {
                             )}
 
                         />
-                        
+                        <View style={{backgroundColor:'transparent', justifyContent:'center',alignItems:'center'}} > 
+                        <Add onAdd={(newTodos) => 
+                        setTasks((currentTodos) => [...currentTodos,newTodos] )
+                        } /> 
+                        </View>
 
-                        <NewTaskInput onAdd={(newTodo) =>
+                        {/* <NewTaskInput onAdd={(newTodo) =>
                             setTasks((currentTasks) => [...currentTasks, newTodo])
                         }
-                        />
+                        /> */}
 
                     </KeyboardAvoidingView>
 
                 </View>
+                
+                
 
             </SafeAreaView>
         </View>
