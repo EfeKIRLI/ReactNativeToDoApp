@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { StyleSheet, Text, View, Pressable, TextInput, ScrollView, KeyboardAvoidingView, Platform, Keyboard } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -11,29 +11,36 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import NewTaskInput from '../../components/NewTaskInput/NewTaskInput';
 import ActionSheet from 'react-native-actions-sheet';
 import Add from '../Add/Add';
+import DatePicker from "react-native-date-picker-by-week";
+
 
 
 
 const initialTasks = [
     {
         title: 'Save the Tasks',
-        isCompleted: true
+        isCompleted: true,
+        dueDate: new Date('2024-05-16')
     },
     {
         title: 'Save the Tasks By writing ',
-        isCompleted: false
+        isCompleted: false,
+        dueDate: new Date('2024-05-16')
     },
     {
         title: 'add a new task ',
-        isCompleted: false
+        isCompleted: false,
+        dueDate: new Date('2024-05-15')
     },
     {
         title: 'change a new task ',
-        isCompleted: false
+        isCompleted: false,
+        dueDate: new Date('2024-05-18')
     },
     {
         title: 'sperate in 3 tabs as: List - Add - Settings ',
-        isCompleted: false
+        isCompleted: false,
+        dueDate: new Date('2024-05-18')
     },
 
 ]
@@ -43,6 +50,8 @@ const initialTasks = [
 
 const Home = () => {
     const [tasks, setTasks] = useState(initialTasks)
+    const [date, setDate] = useState(new Date());
+
 
     const actionSheetRef = useRef(null);
 
@@ -80,7 +89,21 @@ const Home = () => {
     return (
         <View style={style.container}>
             <SafeAreaView>
+
                 <View style={style.subContainer}>
+                    <View>
+                        <DatePicker
+                            date={date}
+                            setDate={setDate}
+                            currDateDay={"#000000"}
+                            currDayDate={"#000000"}
+                            remainingDays={"#adadad"}
+                            remainingDates={"#a8a8a8"}
+                            selectedDateBackground={"#400D51"}
+                            selectedDay={"#400D51"}
+                            selectedDate={"#FFE9A0"}
+                        />
+                    </View>
                     <View style={style.searchBox}>
                         <SearchBar />
                     </View>
@@ -103,7 +126,7 @@ const Home = () => {
                                             size={26}
                                             color={item.isCompleted
                                                 ? '#DFBD43'
-                                                : '#FFE0B5' 
+                                                : '#FFE0B5'
                                             }
 
                                         />
@@ -122,10 +145,10 @@ const Home = () => {
                             )}
 
                         />
-                        <View style={{backgroundColor:'transparent', justifyContent:'center',alignItems:'center'}} > 
-                        <Add onAdd={(newTodos) => 
-                        setTasks((currentTodos) => [...currentTodos,newTodos] )
-                        } /> 
+                        <View style={{ backgroundColor: 'transparent', justifyContent: 'center', alignItems: 'center' }} >
+                            <Add onAdd={(newTodos) =>
+                                setTasks((currentTodos) => [...currentTodos, newTodos])
+                            } />
                         </View>
 
                         {/* <NewTaskInput onAdd={(newTodo) =>
@@ -136,8 +159,8 @@ const Home = () => {
                     </KeyboardAvoidingView>
 
                 </View>
-                
-                
+
+
 
             </SafeAreaView>
         </View>

@@ -10,7 +10,9 @@ const style = StyleSheet.create({
     },
     subContainer: {
         marginTop: 100,
-        // left: 0,
+        marginHorizontal:20
+        // justifyContent:'center',
+        // alignItems:'center'
         // gap:30
     },
     todayTasks: {
