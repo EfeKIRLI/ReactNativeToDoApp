@@ -25,7 +25,7 @@ const initialTasks = [
     {
         title: 'Save the Tasks By writing ',
         isCompleted: false,
-        dueDate: new Date('2024-05-16')
+        dueDate: new Date('2024-05-17')
     },
     {
         title: 'add a new task ',
