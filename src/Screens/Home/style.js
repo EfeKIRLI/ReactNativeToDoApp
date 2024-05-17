@@ -9,7 +9,7 @@ const style = StyleSheet.create({
 
     },
     subContainer: {
-        marginTop: 100,
+        marginTop: 90,
         marginHorizontal:20
         // justifyContent:'center',
         // alignItems:'center'
