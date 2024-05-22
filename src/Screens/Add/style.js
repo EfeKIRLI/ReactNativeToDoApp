@@ -22,6 +22,24 @@ const style = StyleSheet.create({
         // alignItems:'center'
         
 
+    },
+
+    addTodoInput:{ 
+        borderWidth:1,
+        width:'90%',
+        justifyContent:'center',
+        alignItems:'center',
+        // marginHorizontal:10,
+        height:50,
+        borderRadius:30,
+        // left:10,
+        textAlign:'left',
+        // margin:10
+        paddingLeft:20,
+        
+        
+        
+
     }
 })
 

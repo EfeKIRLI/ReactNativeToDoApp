@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { StyleSheet, Text, View, Pressable, TextInput, ScrollView, KeyboardAvoidingView, Platform, Keyboard } from 'react-native'
+import { StyleSheet, Text, View, Pressable, TextInput, ScrollView, KeyboardAvoidingView, Platform, Keyboard, SectionList } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import style from './style'
@@ -101,7 +101,8 @@ import DayTasks from "./DayTasks.json"
 const Home = () => {
     const [tasks, setTasks] = useState(DayTasks)
     const [date, setDate] = useState(new Date());
-    const [filteredTasks , setFilteredTasks] = useState([]);
+    const [filteredTasks, setFilteredTasks] = useState([]);
+    const [showPicker, setShowPicker] = useState(false)
 
 
 
@@ -145,13 +146,13 @@ const Home = () => {
     //         const selectedYear = date.getFullYear();
     //         const selectedMonth = date.getMonth();
     //         const selectedDay = date.getDate();
-      
+
     //         // Ensure dueDate exists and compare year, month, and day for filtering
     //         return todoYear !== undefined && todoYear === selectedYear && todoMonth === selectedMonth && todoDay === selectedDay;
     //       });
     //       setFilteredTasks(filtered);
     //     };
-      
+
     //     // Filter tasks whenever tasks or date changes
     //     filterTasks();
     //   }, [tasks, date]);
@@ -198,8 +199,20 @@ const Home = () => {
 
                 <View style={style.subContainer}>
                     <View>
+                        {/* <SectionList
+                            sections={DayTasks}
+                            keyExtractor={(item, index) => item + index}
+                            renderItem={({ item }) => (
+                                <View style={styles.item}>
+                                    <Text>{item}</Text>
+                                </View>
+                            )}
+                            renderSectionHeader={({ section: { title } }) => (
+                                <Text style={styles.header}>{title}</Text>
+                            )}
+                        /> */}
                         <DatePicker
-                    
+
                             date={date}
                             setDate={setDate}
                             key={date.toString()}
@@ -223,7 +236,7 @@ const Home = () => {
                         keyboardVerticalOffset={250}
                     >
                         <FlatList
-                            data={DayTasks} 
+                            data={DayTasks[date.toISOString().split('T')[0]]}
                             contentContainerStyle={{ gap: 10, }}
                             renderItem={({ item, index }) => (
 
@@ -240,7 +253,9 @@ const Home = () => {
                                                 : '#FFE0B5'
                                             }
 
+
                                         />
+
                                     </View>
 
                                     <Text> 08:00 AM  </Text>
@@ -257,8 +272,11 @@ const Home = () => {
 
                         />
                         <View style={{ backgroundColor: 'transparent', justifyContent: 'center', alignItems: 'center' }} >
-                            <Add onAdd={(newTodos) =>
-                                setTasks((currentTodos) => [...currentTodos, newTodos])
+                            <Add onAdd={(newTodos) => setTasks((currentTodos) => [...currentTodos, newTodos])
+
+
+
+
                             } />
                         </View>
 
