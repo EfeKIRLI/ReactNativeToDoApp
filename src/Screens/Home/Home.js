@@ -181,7 +181,7 @@ const Home = () => {
     // }, []);
 
 
-    const onTaskPressed = (index) => {
+    const onTaskPressed = ([index]) => {
         setTasks((currentTasks) => {
             const updatedTasks = [...currentTasks];
             currentTasks[index].isCompleted = !currentTasks[index].isCompleted;
@@ -226,6 +226,7 @@ const Home = () => {
                             selectedDate={"#FFE9A0"}
 
                         />
+                        
                     </View>
                     <View style={style.searchBox}>
                         <SearchBar />
@@ -237,9 +238,9 @@ const Home = () => {
                     >
                         <FlatList
                             data={DayTasks[date.toISOString().split('T')[0]]}
+                            // data={DayTasks}
                             contentContainerStyle={{ gap: 10, }}
                             renderItem={({ item, index }) => (
-
                                 <Pressable onPress={() => onTaskPressed(index)} style={style.taskConatiner} >
                                     <View style={style.chekboxIcon}>
                                         <MaterialCommunityIcons
@@ -255,7 +256,6 @@ const Home = () => {
 
 
                                         />
-
                                     </View>
 
                                     <Text> 08:00 AM  </Text>
@@ -271,13 +271,10 @@ const Home = () => {
                             )}
 
                         />
-                        <View style={{ backgroundColor: 'transparent', justifyContent: 'center', alignItems: 'center' }} >
+                        <View style={{ backgroundColor: 'transparent', justifyContent: 'flex-end', alignItems: 'center', height:100 }} >
                             <Add onAdd={(newTodos) => setTasks((currentTodos) => [...currentTodos, newTodos])
 
-
-
-
-                            } />
+ } />
                         </View>
 
                         {/* <NewTaskInput onAdd={(newTodo) =>

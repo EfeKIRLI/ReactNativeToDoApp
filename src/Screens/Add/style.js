@@ -8,6 +8,7 @@ const style = StyleSheet.create({
         // justifyContent:'center',
         // alignItems:'center'
         // marginVertical:10
+       
     },
 
     addTodoActionContainer:{ 
@@ -16,10 +17,12 @@ const style = StyleSheet.create({
         height:70,
         borderRadius:50,
         alignItems:'center',
+      
         // marginVertical:1,
         // marginHorizontal:20,
         // justifyContent:'center',
         // alignItems:'center'
+        
         
 
     },
@@ -36,6 +39,7 @@ const style = StyleSheet.create({
         textAlign:'left',
         // margin:10
         paddingLeft:20,
+        
         
         
         
