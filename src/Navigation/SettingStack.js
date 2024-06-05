@@ -9,4 +9,4 @@ const SettingStack = () => {
   )
 }
 
-export default SettingStack
+export default SettingStack;

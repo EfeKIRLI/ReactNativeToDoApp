@@ -1,7 +1,7 @@
 import React from "react";
-import Routes from './Routes'
+// import Routes from './Routes'
 import TabRoutes from "./TabRoutes";
-import { View, Text } from 'react-native'
+// import { View, Text } from 'react-native'
 import { createStackNavigator } from "@react-navigation/stack";
 import navigationString from "../../constants/navigationString";
 
