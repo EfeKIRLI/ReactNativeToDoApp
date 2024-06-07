@@ -12,7 +12,7 @@ import NewTaskInput from '../../components/NewTaskInput/NewTaskInput';
 import ActionSheet from 'react-native-actions-sheet';
 import Add from '../Add/Add';
 import DatePicker from "react-native-date-picker-by-week";
-import DayTasks from "./DayTasks.json"
+import DayTasks from "./DayTasks"
 
 
 
@@ -237,8 +237,8 @@ const Home = () => {
                         keyboardVerticalOffset={250}
                     >
                         <FlatList
-                            data={DayTasks[date.toISOString().split('T')[0]]}
-                            // data={DayTasks}
+                            // data={DayTasks[date.toISOString().split('T')[0]]}
+                            data={DayTasks}
                             contentContainerStyle={{ gap: 10, }}
                             renderItem={({ item, index }) => (
                                 <Pressable onPress={() => onTaskPressed(index)} style={style.taskConatiner} >

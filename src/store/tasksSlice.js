@@ -46,7 +46,7 @@ const initialTasks = {
 }
 
 
-export const Tasks = createSlice({
+export const tasksSlice = createSlice({
 
     name: 'tasks',
     initialState: initialTasks,
@@ -76,6 +76,6 @@ export const Tasks = createSlice({
     }
 })
 
-export const { addTask, toggleTaskCompletion, removeTask } = tasksSlice.actions;
+export const { addTask, toggleTaskCompletion, removeTask } = tasks.actions;
 
-export default tasksSlice.reducer;
+export default Tasks.reducer;

@@ -12,6 +12,8 @@ import navigationString from './constants/navigationString';
 // import { ActionSheetProvider } from '@expo/react-native-action-sheet';
 // import ActionSheetRef from 'react-native-actions-sheet';
 import ActionSheet from 'react-native-actions-sheet';
+import { Provider } from 'react-redux';
+import { store } from './src/store';
 
 
 
@@ -44,7 +46,8 @@ export default function App() {
   }
 
   return (
-    // "@react-navigation/elements": "^1.3.30",
+    <Provider store={store} > 
+    {/* // "@react-navigation/elements": "^1.3.30",
     // <SafeAreaProvider> 
     //   <View> 
     //   <Text> hi </Text>
@@ -58,10 +61,11 @@ export default function App() {
 
     //   </Stack.Navigator>
     // </NavigationContainer>
-
+    //  */}
       <View style={{ flex: 1 }} >
         <Routes />
       </View>
+      // </Provider>
   );
 }
 
